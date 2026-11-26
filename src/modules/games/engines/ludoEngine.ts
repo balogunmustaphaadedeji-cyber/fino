@@ -50,9 +50,6 @@ export function isSafeSquare(pos: number): boolean {
   return pos % 13 === 0;
 }
 
-function mainIndex(color: LudoColor, stepsFromStart: number): number {
-  return (START[color] + stepsFromStart) % 52;
-}
 
 /** Absolute main-track index for a token, or null if in yard/home/finished */
 export function tokenMainPos(_color: LudoColor, position: number): number | null {
