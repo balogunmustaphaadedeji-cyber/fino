@@ -8,7 +8,6 @@ import {
   completeLesson,
   myEnrollments,
   getStudentStats,
-  myCertificates,
   getQuizForCourse,
   getQuizQuestions,
   submitQuiz,

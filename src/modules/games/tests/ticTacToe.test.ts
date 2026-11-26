@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { applyTttMove, checkWinner, createTttState, tttAiMove } from '../engines/ticTacToe';
+import { applyTttMove, createTttState, tttAiMove } from '../engines/ticTacToe';
 
 describe('tic-tac-toe', () => {
   it('detects row win', () => {

@@ -55,7 +55,7 @@ function mainIndex(color: LudoColor, stepsFromStart: number): number {
 }
 
 /** Absolute main-track index for a token, or null if in yard/home/finished */
-export function tokenMainPos(color: LudoColor, position: number): number | null {
+export function tokenMainPos(_color: LudoColor, position: number): number | null {
   if (position < 0 || position >= 100) return null;
   return position;
 }

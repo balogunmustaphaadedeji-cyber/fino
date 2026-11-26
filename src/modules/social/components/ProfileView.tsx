@@ -250,6 +250,18 @@ export function ProfileView({
           )}
         </div>
       )}
+      {qrUrl && (
+        <div className="social-story-viewer" role="dialog" aria-label="Profile QR" onClick={() => setQrUrl(null)}>
+          <div className="social-story-content" onClick={(e) => e.stopPropagation()} style={{ background: 'var(--surface)', color: 'var(--text)', padding: 16, borderRadius: 12 }}>
+            <header style={{ marginBottom: 12 }}>
+              <strong>Profile QR</strong>
+              <button type="button" onClick={() => setQrUrl(null)}>Close</button>
+            </header>
+            <img src={qrUrl} alt="Profile QR code" width={200} height={200} style={{ margin: '0 auto', display: 'block' }} />
+            <p className="muted" style={{ textAlign: 'center', marginTop: 8 }}>Scan to open this FINO profile</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -327,18 +339,6 @@ export function EditProfileForm({ profile, onSaved, onCancel }: EditProps) {
         </button>
       </div>
 
-      {qrUrl && (
-        <div className="social-story-viewer" role="dialog" aria-label="Profile QR" onClick={() => setQrUrl(null)}>
-          <div className="social-story-content" onClick={(e) => e.stopPropagation()} style={{ background: 'var(--surface)', color: 'var(--text)', padding: 16, borderRadius: 12 }}>
-            <header style={{ marginBottom: 12 }}>
-              <strong>Profile QR</strong>
-              <button type="button" onClick={() => setQrUrl(null)}>Close</button>
-            </header>
-            <img src={qrUrl} alt="Profile QR code" width={200} height={200} style={{ margin: '0 auto', display: 'block' }} />
-            <p className="muted" style={{ textAlign: 'center', marginTop: 8 }}>Scan to open this FINO profile</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -557,7 +557,7 @@ export async function getFollowers(userId: string, params: PaginationParams = {}
     .order('created_at', { ascending: false })
     .limit(limit);
   if (error) throw error;
-  return (data ?? []).map((r: { follower: Profile }) => r.follower).filter(Boolean);
+  return (data ?? []).map((r: { follower: Profile | Profile[] | null }) => Array.isArray(r.follower) ? r.follower[0] : r.follower).filter((profile): profile is Profile => Boolean(profile));
 }
 
 export async function getFollowing(userId: string, params: PaginationParams = {}): Promise<Profile[]> {
@@ -570,7 +570,7 @@ export async function getFollowing(userId: string, params: PaginationParams = {}
     .order('created_at', { ascending: false })
     .limit(limit);
   if (error) throw error;
-  return (data ?? []).map((r: { following: Profile }) => r.following).filter(Boolean);
+  return (data ?? []).map((r: { following: Profile | Profile[] | null }) => Array.isArray(r.following) ? r.following[0] : r.following).filter((profile): profile is Profile => Boolean(profile));
 }
 
 export async function getPendingFollowRequests(): Promise<FollowRequest[]> {
@@ -719,7 +719,7 @@ export async function getBlockedUsers(): Promise<Profile[]> {
     .select('blocked:profiles!social_blocks_blocked_id_fkey (*)')
     .eq('blocker_id', uid);
   if (error) throw error;
-  return (data ?? []).map((r: { blocked: Profile }) => r.blocked).filter(Boolean);
+  return (data ?? []).map((r: { blocked: Profile | Profile[] | null }) => Array.isArray(r.blocked) ? r.blocked[0] : r.blocked).filter((profile): profile is Profile => Boolean(profile));
 }
 
 export async function reportContent(input: ReportInput): Promise<void> {

@@ -175,8 +175,10 @@ export async function getMatchHistory(userId: string, limit = 20): Promise<GameM
     .limit(limit);
   if (error) throw error;
   return (data ?? [])
-    .map((r: { games_matches: GameMatch }) => r.games_matches)
-    .filter(Boolean);
+    .map((r: { games_matches: GameMatch | GameMatch[] | null }) =>
+      Array.isArray(r.games_matches) ? r.games_matches[0] : r.games_matches,
+    )
+    .filter((match): match is GameMatch => Boolean(match));
 }
 
 export async function getRecentMatches(limit = 10): Promise<GameMatch[]> {

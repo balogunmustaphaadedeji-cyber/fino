@@ -22,7 +22,6 @@ import {
   updateEmail,
   requestPasswordReset,
   listLoginEvents,
-  updatePhoneOnProfile,
 } from '../auth/authApi';
 import { supabase } from '../../lib/supabase';
 import { COUNTRIES } from '../auth/countries';

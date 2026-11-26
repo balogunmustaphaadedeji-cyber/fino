@@ -10,7 +10,7 @@ import {
 import {
   listCatalogue, ensurePlayer, getLeaderboard, getRecentMatches, createRoom, joinRoomByCode,
   createMatch, completeMatch, getCurrentUserId, matchmake, leaveRoom, startRoomMatch,
-  getRoomPlayers, setReady, listInvitations, respondInvitation, subscribeRoomPlayers,
+  getRoomPlayers, setReady,
 } from './api/client';
 import { OnlineTicTacToe } from './components/OnlineTicTacToe';
 import type { CatalogueGame, GameMatch, GamesPlayer } from './types';
@@ -41,7 +41,6 @@ export default function GamesPage() {
   const [roomCode, setRoomCode] = useState('');
   const [roomId, setRoomId] = useState<string | null>(null);
   const [roomPlayers, setRoomPlayers] = useState<{user_id:string;seat:number;is_ready:boolean;is_host:boolean}[]>([]);
-  const [invites, setInvites] = useState<{id:string;room_id:string;from_user_id:string}[]>([]);
   const [onlineSeat, setOnlineSeat] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
