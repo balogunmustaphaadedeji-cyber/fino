@@ -1,0 +1,42 @@
+.market-page { max-width: 920px; }
+.market-header { margin-bottom: 18px; }
+.market-roles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+@media (min-width: 640px) {
+  .market-roles { grid-template-columns: 1fr 1fr; }
+}
+.market-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.market-card h3 { margin: 8px 0 6px; }
+.market-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.market-chip {
+  border: 1px solid var(--border);
+  background: var(--green-soft);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 650;
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.market-form { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.market-form input {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
